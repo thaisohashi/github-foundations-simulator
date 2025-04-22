@@ -1,16 +1,33 @@
 <section class="home">
   <div class="home__inner">
     <div class="home__text">
-      <p class="home__subtitle">Simulados</p>
-      <h1 class="home__title">GitHub Foundations Certification</h1>
-      <p class="home__description">Escolha quantas questões quiser e comece a praticar agora mesmo!</p>
+      <p class="home__subtitle">{{ 'HOME.SUBTITLE' | translate }}</p>
+      <h1 class="home__title">{{ 'HOME.TITLE' | translate }}</h1>
+      <p class="home__description">{{ 'HOME.DESCRIPTION' | translate }}</p>
     </div>
     <div class="home__media">
       <img class="home__badge" src="assets/images/github-foundations-badge.png" alt="Badge GitHub Foundations">
     </div>
     <div class="home__form">
-      <input class="home__input" type="number" min="1" [max]="maxQuestions" [(ngModel)]="questionsCount" />
-      <button class="home__button" (click)="startQuiz()">Iniciar</button>
+      <div class="home__form_group">
+        <input class="home__input" type="number" min="1" [max]="maxQuestions" [(ngModel)]="questionsCount" />
+        <button class="home__button" (click)="startQuiz()" [disabled]="questionsCount > maxQuestions">{{
+          'HOME.BUTTON.START' | translate }}</button>
+      </div>
+      <p *ngIf="questionsCount > maxQuestions" class="error-message">
+        {{ 'HOME.ERROR.MAX_QUESTIONS' | translate: { maxQuestions: maxQuestions } }}
+      </p>
     </div>
+  </div>
+
+  <div class="home__language-switcher">
+    <button (click)="switchLanguage('pt')" [class.active]="currentLanguage === 'pt'"
+      class="home__language-switcher-button">
+      <img class="home__language-switcher-flag" src="assets/images/brazil-flag.png" alt="Brazil Flag">
+    </button>
+    <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'"
+      class="home__language-switcher-button">
+      <img class="home__language-switcher-flag" src="assets/images/us-flag.png" alt="US Flag">
+    </button>
   </div>
 </section>

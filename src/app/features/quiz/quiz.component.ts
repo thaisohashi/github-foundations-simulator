@@ -5,11 +5,13 @@ import { QuizStateService } from '../../core/service/quiz-state.service';
 import { QuizService } from '../../core/service/quiz.service';
 import { QuestionDTO } from '../../core/dto/quiz.dto';
 import { Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from '../../core/service/language.service';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, TranslateModule],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
 })
@@ -23,7 +25,8 @@ export class QuizComponent implements OnInit {
   constructor(
     private quizService: QuizService,
     private quizStateService: QuizStateService,
-    private router: Router
+    private router: Router,
+    private languageService: LanguageService
   ) { }
 
   public ngOnInit(): void {
@@ -66,5 +69,13 @@ export class QuizComponent implements OnInit {
         selectedAnswers: this.selectedAnswers
       }
     });
+  }
+
+  get currentLanguage(): string {
+    return this.languageService.currentLanguage;
+  }
+
+  public switchLanguage(lang: 'pt' | 'en') {
+    this.languageService.setLanguage(lang);
   }
 }

@@ -148,7 +148,7 @@
 
   &__correct {
     display: inline-block;
-    width: 8rem;
+    width: 15rem;
     color: $white;
     text-align: center;
     background-color: $green;
@@ -157,7 +157,7 @@
     margin-bottom: 0.5rem;
 
     @media (max-width: $breakpoint-sm) {
-      width: 5rem;
+      width: 12rem;
       font-size: 0.7rem;
     }
   }
@@ -272,5 +272,32 @@
 
   .text-green {
     color: $green;
+  }
+
+  &__language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    display: flex;
+    gap: 0.5rem;
+
+    &-flag {
+      width: 1.5rem;
+    }
+
+    &-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+
+      &.active {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 2px #000);
+      }
+    }
   }
 }

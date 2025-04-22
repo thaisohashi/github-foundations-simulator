@@ -1,0 +1,41 @@
+{
+  "HOME": {
+    "TITLE": "GitHub Foundations Certification",
+    "SUBTITLE": "Simulados",
+    "DESCRIPTION": "Escolha quantas questões quiser e comece a praticar agora mesmo!",
+    "BUTTON": {
+      "START": "Iniciar"
+    },
+    "ERROR": {
+      "MAX_QUESTIONS": "O número máximo de questões é {{maxQuestions}}."
+    }
+  },
+  "QUIZ": {
+    "PROGRESS": "Questão {{current}} de {{total}}",
+    "BUTTON": {
+      "BACK": "Voltar",
+      "NEXT": "Avançar",
+      "FINISH": "Finalizar"
+    }
+  },
+  "RESULT": {
+    "TITLE": "Resultado do Simulado",
+    "SUMMARY": {
+      "CORRECT_ANSWER_SINGULAR": "Você acertou {{correctAnswers}} de {{totalQuestions}} questão",
+      "CORRECT_ANSWER_PLURAL": "Você acertou {{correctAnswers}} de {{totalQuestions}} questões",
+      "CONGRATULATIONS": "🎉 Parabéns! Você acertou todas as questões!",
+      "ALL_WRONG": "Você errou todas as questões!",
+      "PERCENTAGE": "Seu desempenho: {{ successPercentage | number: '1.0-2' }}%"
+    },
+    "QUESTION": {
+      "TITLE": "Questão {{questionNumber}}",
+      "EXPLANATION": "Explicação:",
+      "REFERENCE": "Referência:",
+      "CORRECT": "Alternativa correta",
+      "SELECTED": "Alternativa que você escolheu"
+    },
+    "BUTTON": {
+      "NEW_QUIZ": "Novo Simulado"
+    }
+  }
+}

@@ -188,4 +188,31 @@
       font-size: 1rem;
     }
   }
+
+  &__language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    display: flex;
+    gap: 0.5rem;
+
+    &-flag {
+      width: 1.5rem;
+    }
+
+    &-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+
+      &.active {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 2px #000);
+      }
+    }
+  }
 }

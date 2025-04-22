@@ -1,8 +1,7 @@
 export interface AlternativeDTO {
   id: number;
   alternative_translated: {
-    pt_br: string;
-    en: string;
+    [key: string]: string;
   };
   is_correct: boolean;
 }
@@ -10,15 +9,13 @@ export interface AlternativeDTO {
 export interface QuestionDTO {
   id: number;
   question_translated: {
-    pt_br: string;
-    en: string;
+    [key: string]: string;
   };
   alternatives: AlternativeDTO[];
   domain: string;
   topic: string;
   answer_explanation: {
-    pt_br: string;
-    en: string;
+    [key: string]: string;
   };
   reference_link: string;
 }

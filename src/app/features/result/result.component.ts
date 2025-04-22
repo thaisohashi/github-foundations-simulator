@@ -5,11 +5,13 @@ import { Router } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
 import { QuestionDTO } from '../../core/dto/quiz.dto';
+import { LanguageService } from '../../core/service/language.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-result',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatExpansionModule, MatIconModule],
+  imports: [CommonModule, FormsModule, MatExpansionModule, MatIconModule, TranslateModule],
   templateUrl: './result.component.html',
   styleUrls: ['./result.component.scss']
 })
@@ -19,12 +21,16 @@ export class ResultComponent implements OnInit {
   public totalQuestions: number = 0;
   public correctAnswers: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private languageService: LanguageService
+  ) { }
 
   public ngOnInit(): void {
     const navigationState = history.state;
     if (navigationState && navigationState.questions && navigationState.selectedAnswers) {
       this.questions = navigationState.questions;
+      console.log(this.questions)
       this.selectedAnswers = navigationState.selectedAnswers;
       this.totalQuestions = this.questions.length;
       this.correctAnswers = this.calculateCorrectAnswers();
@@ -50,5 +56,13 @@ export class ResultComponent implements OnInit {
     const question = this.questions[i];
     const correctId = question.alternatives.find((a: { is_correct: boolean; }) => a.is_correct)?.id;
     return this.selectedAnswers[i] === correctId;
+  }
+
+  get currentLanguage(): string {
+    return this.languageService.currentLanguage;
+  }
+
+  public switchLanguage(lang: 'pt' | 'en') {
+    this.languageService.setLanguage(lang);
   }
 }

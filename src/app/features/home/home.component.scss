@@ -5,8 +5,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
+  padding: 10rem;
   box-sizing: border-box;
+
+  @media (max-width: $breakpoint-lg) {
+    padding: 5rem;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    padding: 5rem;
+  }
+
+  @media (max-width: $breakpoint-custom) {
+    padding: 2.5rem;
+  }
 
   @media (max-width: $breakpoint-sm) {
     padding: 2rem;
@@ -17,6 +29,7 @@
     grid-auto-flow: row;
     grid-template-columns: auto auto;
     grid-template-rows: auto auto;
+    width: 100%;
 
     @media (max-width: $breakpoint-md) {
       grid-template-columns: 1fr;
@@ -42,7 +55,9 @@
     }
 
     @media (max-width: $breakpoint-md) {
+      display: block;
       font-size: 2rem;
+      text-align: center;
       line-height: 60px;
       max-width: 100%;
       background-image: linear-gradient(to right, $pink 3%, $blue 77%);
@@ -51,7 +66,6 @@
     @media (max-width: $breakpoint-custom) {
       background-image: linear-gradient(to bottom, $pink 3%, $blue 77%);
       line-height: 48px;
-      text-align: center;
     }
   }
 
@@ -94,6 +108,11 @@
   }
 
   &__media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
     @media (max-width: $breakpoint-md) {
       display: flex;
       align-items: center;
@@ -102,7 +121,7 @@
   }
 
   &__badge {
-    width: 18rem;
+    width: 15rem;
 
     @media (max-width: $breakpoint-lg) {
       width: 12rem;
@@ -113,7 +132,7 @@
     }
   }
 
-  &__form {
+  &__form_group {
     display: flex;
     justify-content: space-between;
     background-color: $white;
@@ -163,6 +182,11 @@
       background-color: $pink-hover;
     }
 
+    &:disabled {
+      background-color: $gray-medium;
+      cursor: not-allowed;
+    }
+
     @media (max-width: $breakpoint-md) {
       padding: 0.5rem;
       font-size: 1.25rem;
@@ -172,5 +196,38 @@
       width: 100%;
       font-size: 1rem;
     }
+  }
+
+  &__language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    display: flex;
+    gap: 0.5rem;
+
+    &-flag {
+      width: 1.5rem;
+    }
+
+    &-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+
+      &.active {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 2px #000);
+      }
+    }
+  }
+
+  .error-message {
+    color: $red;
+    font-size: 0.8rem;
+    margin-top: 1rem;
   }
 }

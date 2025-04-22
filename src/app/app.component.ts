@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { LanguageService } from './core/service/language.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'github-foundations-simulator';
+  constructor(private languageService: LanguageService) { }
 }

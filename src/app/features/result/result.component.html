@@ -1,6 +1,6 @@
 <div class="result">
   <div class="result__card">
-    <h1 class="result__title">Resultado do Simulado</h1>
+    <h1 class="result__title">{{ 'RESULT.TITLE' | translate }}</h1>
 
     <div class="result__summary">
       <p class="result__percentage-number"
@@ -9,19 +9,25 @@
       </p>
 
       <p *ngIf="correctAnswers != totalQuestions && correctAnswers > 0" class="result__percentage">
-        Você acertou {{ correctAnswers }} de {{ totalQuestions }} {{ totalQuestions > 1 ? 'questões' : 'questão' }}
+        <ng-container *ngIf="totalQuestions === 1; else pluralText">
+          {{ 'RESULT.SUMMARY.CORRECT_ANSWER_SINGULAR' | translate: { correctAnswers, totalQuestions } }}
+        </ng-container>
+        <ng-template #pluralText>
+          {{ 'RESULT.SUMMARY.CORRECT_ANSWER_PLURAL' | translate: { correctAnswers, totalQuestions } }}
+        </ng-template>
       </p>
 
+
       <p *ngIf="correctAnswers === totalQuestions" class="result__percentage">
-        🎉 Parabéns! Você acertou todas as questões!
+        {{ 'RESULT.SUMMARY.CONGRATULATIONS' | translate }}
       </p>
 
       <p *ngIf="correctAnswers === 0" class="result__percentage">
-        Você errou todas as questões!
+        {{ 'RESULT.SUMMARY.ALL_WRONG' | translate }}
       </p>
     </div>
 
-    <!-- Accordion para cada questão -->
+    <!-- Accordion for each question -->
     <mat-accordion class="result__accordion">
       <mat-expansion-panel *ngFor="let question of questions; index as i">
         <mat-expansion-panel-header class="result__question-header">
@@ -34,13 +40,13 @@
             </mat-icon>
 
             <mat-panel-title class="result__question-header">
-              Questão {{ i + 1 }}
+              {{ 'RESULT.QUESTION.TITLE' | translate: { questionNumber: i + 1 } }}
             </mat-panel-title>
           </mat-panel-description>
         </mat-expansion-panel-header>
 
         <div class="result__question-text">
-          <p>{{ question.question_translated['pt_br'] }}</p>
+          <p>{{ question.question_translated[currentLanguage] }}</p>
         </div>
 
         <div class="result__alternatives">
@@ -49,28 +55,28 @@
             'result__alternative--wrong': selectedAnswers[i] === option.id && !option.is_correct
           }">
             <span *ngIf="selectedAnswers[i] === option.id && option.is_correct" class="result__correct">
-              Correta
+              {{ 'RESULT.QUESTION.CORRECT' | translate }}
             </span>
 
             <span *ngIf="selectedAnswers[i] === option.id && !option.is_correct" class="result__wrong">
-              Alternativa que você escolheu
+              {{ 'RESULT.QUESTION.SELECTED' | translate }}
             </span>
 
             <span *ngIf="selectedAnswers[i] !== option.id && option.is_correct" class="result__correct">
-              Correta
+              {{ 'RESULT.QUESTION.CORRECT' | translate }}
             </span>
 
-            <p class="result__option-text">{{ option.alternative_translated['pt_br'] }}</p>
+            <p class="result__option-text">{{ option.alternative_translated[currentLanguage] }}</p>
           </div>
         </div>
 
         <div class="result__explanation">
-          <h4 class="result__explanation-title">Explicação:</h4>
-          <p class="result__explanation-text">{{ question.answer_explanation['pt_br'] }}</p>
+          <h4 class="result__explanation-title">{{ 'RESULT.QUESTION.EXPLANATION' | translate }}</h4>
+          <p class="result__explanation-text">{{ question.answer_explanation[currentLanguage] }}</p>
         </div>
 
         <div class="result__reference">
-          <h4 class="result__reference-title">Referência:</h4>
+          <h4 class="result__reference-title">{{ 'RESULT.QUESTION.REFERENCE' | translate }}</h4>
           <p class="result__reference-text">
             <a class="result__reference-link" [href]="question.reference_link" target="_blank">
               {{ question.reference_link }}
@@ -87,7 +93,19 @@
     </mat-accordion>
 
     <div class="result__footer">
-      <button class="result__new-quiz-button" (click)="startNewQuiz()">Novo Simulado</button>
+      <button class="result__new-quiz-button" (click)="startNewQuiz()">{{ 'RESULT.BUTTON.NEW_QUIZ' | translate
+        }}</button>
     </div>
+  </div>
+
+  <div class="result__language-switcher">
+    <button (click)="switchLanguage('pt')" [class.active]="currentLanguage === 'pt'"
+      class="result__language-switcher-button">
+      <img class="result__language-switcher-flag" src="assets/images/brazil-flag.png" alt="Brazil Flag">
+    </button>
+    <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'"
+      class="result__language-switcher-button">
+      <img class="result__language-switcher-flag" src="assets/images/us-flag.png" alt="US Flag">
+    </button>
   </div>
 </div>
