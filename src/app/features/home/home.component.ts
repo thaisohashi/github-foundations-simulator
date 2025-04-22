@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
+import { QuizService } from '../../core/service/quiz.service';
+import { QuizStateService } from '../../core/service/quiz-state.service';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +12,27 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  questionsCount = 75;
+export class HomeComponent implements OnInit {
+  public questionsCount: number = 10;
+  public maxQuestions: number = 0;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private quizService: QuizService,
+    private quizStateService: QuizStateService
+  ) { }
 
-  startQuiz() {
-    // A lógica de navegação para o quiz pode ser ajustada depois
-    this.router.navigate(['/quiz'], { queryParams: { total: this.questionsCount } });
+  public ngOnInit(): void {
+    this.quizService.getMaxQuestions().subscribe((max) => {
+      this.maxQuestions = max;
+    });
+  }
+
+  public startQuiz() {
+    if (this.questionsCount > this.maxQuestions) {
+      this.questionsCount = this.maxQuestions;
+    }
+    this.quizStateService.setQuestionsCount(this.questionsCount);
+    this.router.navigate(['/quiz']);
   }
 }

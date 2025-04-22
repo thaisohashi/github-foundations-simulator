@@ -1,0 +1,93 @@
+<div class="result">
+  <div class="result__card">
+    <h1 class="result__title">Resultado do Simulado</h1>
+
+    <div class="result__summary">
+      <p class="result__percentage-number"
+        [ngClass]="{ 'text-red': successPercentage < 70, 'text-green': successPercentage >= 70}">
+        {{ successPercentage | number: '1.0-2' }}%
+      </p>
+
+      <p *ngIf="correctAnswers != totalQuestions && correctAnswers > 0" class="result__percentage">
+        Você acertou {{ correctAnswers }} de {{ totalQuestions }} {{ totalQuestions > 1 ? 'questões' : 'questão' }}
+      </p>
+
+      <p *ngIf="correctAnswers === totalQuestions" class="result__percentage">
+        🎉 Parabéns! Você acertou todas as questões!
+      </p>
+
+      <p *ngIf="correctAnswers === 0" class="result__percentage">
+        Você errou todas as questões!
+      </p>
+    </div>
+
+    <!-- Accordion para cada questão -->
+    <mat-accordion class="result__accordion">
+      <mat-expansion-panel *ngFor="let question of questions; index as i">
+        <mat-expansion-panel-header class="result__question-header">
+          <mat-panel-description>
+            <mat-icon class="result__icon" [ngClass]="{
+            'text-green': isAnswerCorrect(i),
+            'text-red': !isAnswerCorrect(i)
+          }">
+              {{ isAnswerCorrect(i) ? 'check' : 'close' }}
+            </mat-icon>
+
+            <mat-panel-title class="result__question-header">
+              Questão {{ i + 1 }}
+            </mat-panel-title>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div class="result__question-text">
+          <p>{{ question.question_translated['pt_br'] }}</p>
+        </div>
+
+        <div class="result__alternatives">
+          <div *ngFor="let option of question.alternatives" class="result__alternative" [ngClass]="{
+            'result__alternative--correct': option.is_correct,
+            'result__alternative--wrong': selectedAnswers[i] === option.id && !option.is_correct
+          }">
+            <span *ngIf="selectedAnswers[i] === option.id && option.is_correct" class="result__correct">
+              Correta
+            </span>
+
+            <span *ngIf="selectedAnswers[i] === option.id && !option.is_correct" class="result__wrong">
+              Alternativa que você escolheu
+            </span>
+
+            <span *ngIf="selectedAnswers[i] !== option.id && option.is_correct" class="result__correct">
+              Correta
+            </span>
+
+            <p class="result__option-text">{{ option.alternative_translated['pt_br'] }}</p>
+          </div>
+        </div>
+
+        <div class="result__explanation">
+          <h4 class="result__explanation-title">Explicação:</h4>
+          <p class="result__explanation-text">{{ question.answer_explanation['pt_br'] }}</p>
+        </div>
+
+        <div class="result__reference">
+          <h4 class="result__reference-title">Referência:</h4>
+          <p class="result__reference-text">
+            <a class="result__reference-link" [href]="question.reference_link" target="_blank">
+              {{ question.reference_link }}
+            </a>
+          </p>
+        </div>
+
+        <div class="result__domain-topic">
+          <p class="result__domain">{{ question.domain }} </p>
+          <p class="result__topic">{{ question.topic }} </p>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <div class="result__footer">
+      <button class="result__new-quiz-button" (click)="startNewQuiz()">Novo Simulado</button>
+    </div>
+  </div>
+</div>

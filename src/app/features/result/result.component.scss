@@ -1,0 +1,187 @@
+@import '../../../assets/styles/variables';
+
+.result {
+  font-family: "Mona Sans", sans-serif;
+  color: $black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    overflow-y: auto;
+    background-color: $white;
+    border-radius: $border-radius;
+    padding: 3rem;
+    width: 80%;
+    margin: 10rem 0;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__summary {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  &__percentage {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
+  }
+
+  &__percentage-number {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin: 2rem 0 0 0;
+  }
+
+  &__accordion ::ng-deep .mat-expansion-panel {
+    box-shadow: none;
+    margin-top: 1rem;
+    border: 0.1rem solid $black;
+    border-radius: $border-radius;
+  }
+
+  &__question-header {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: $border-radius;
+  }
+
+  &__question-title {
+    margin: 0;
+  }
+
+  &__question-text {
+    padding: 0 0 0 1rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  &__alternatives {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  &__alternative {
+    border: 0.1rem solid $black;
+    border-radius: $border-radius;
+    padding: 1rem;
+  }
+
+  &__alternative--correct {
+    background-color: rgba($green, 0.2);
+    border-color: $green;
+  }
+
+  &__alternative--wrong {
+    background-color: rgba($red, 0.2);
+    border-color: $red;
+  }
+
+  &__option-text {
+    color: $black;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  &__correct {
+    display: inline-block;
+    width: 8rem;
+    color: $white;
+    text-align: center;
+    background-color: $green;
+    border-radius: $border-radius;
+    padding: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  &__wrong {
+    display: inline-block;
+    width: 15rem;
+    color: $white;
+    text-align: center;
+    background-color: $red;
+    border-radius: $border-radius;
+    padding: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  &__explanation,
+  &__reference,
+  &__domain-topic {
+    font-size: 1rem;
+    margin-bottom: 0;
+    padding: 0 0 0 1rem;
+  }
+
+  &__explanation-title,
+  &__reference-title {
+    margin: 2rem 0 0 0;
+  }
+
+  &__explanation-text,
+  &__reference-text {
+    margin: 0;
+  }
+
+  &__domain-topic {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  &__domain,
+  &__topic {
+    display: inline-block;
+    width: 15rem;
+    color: $black;
+    text-align: center;
+    background-color: transparent;
+    border-radius: $border-radius;
+    padding: 0.2em;
+    border: 0.1rem solid $black;
+
+  }
+
+  &__footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__new-quiz-button {
+    width: 15rem;
+    height: 3.5rem;
+    background-color: $pink;
+    border: none;
+    border-radius: $border-radius;
+    color: $white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: background-color 0.48s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: $pink-hover;
+    }
+  }
+
+  .text-red {
+    color: $red;
+  }
+
+  .text-green {
+    color: $green;
+  }
+}
