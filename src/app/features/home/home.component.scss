@@ -7,58 +7,137 @@
   align-items: center;
   padding: 5rem;
   box-sizing: border-box;
-}
 
-.home__inner {
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: auto auto;
-  grid-template-rows: auto auto;
-}
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem;
+  }
 
-.home__title {
-  display: inline-block;
-  max-width: 15ch;
-  font-size: 4.5rem;
-  font-family: "Mona Sans", sans-serif;
-  font-weight: 700;
-  background-image: linear-gradient(to bottom, $pink, $blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-  line-height: 85px;
-}
+  &__inner {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
 
-.home__subtitle {
-  text-transform: uppercase;
-  margin: 0;
-}
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+      grid-template-rows: none;
+    }
+  }
 
-.home__subtitle,
-.home__description {
-  font-family: "Space Mono", monospace;
-  font-size: 1.5rem;
-  color: $white;
-}
+  &__title {
+    display: inline-block;
+    max-width: 15ch;
+    font-size: 4.5rem;
+    font-family: "Mona Sans", sans-serif;
+    font-weight: 700;
+    background-image: linear-gradient(to bottom, $pink 3%, $blue 77%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+    line-height: 85px;
 
-.home__description {
-  margin-top: 4rem;
-}
+    @media (max-width: $breakpoint-lg) {
+      font-size: 3.8rem;
+      line-height: 72px;
+    }
 
-.home__badge {
-  width: 18rem;
-}
+    @media (max-width: $breakpoint-md) {
+      font-size: 2rem;
+      line-height: 60px;
+      max-width: 100%;
+      background-image: linear-gradient(to right, $pink 3%, $blue 77%);
+    }
 
-.home__form {
-  display: flex;
-  justify-content: space-between;
-  background-color: $white;
-  padding: 0.3rem;
-  border-radius: $border-radius;
-  width: 25rem;
-  height: 4rem;
+    @media (max-width: $breakpoint-custom) {
+      background-image: linear-gradient(to bottom, $pink 3%, $blue 77%);
+      line-height: 48px;
+      text-align: center;
+    }
+  }
 
-  .home__input {
+  &__subtitle {
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  &__subtitle,
+  &__description {
+    font-family: "Space Mono", monospace;
+    font-size: 1.5rem;
+    color: $white;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1rem;
+      text-align: center;
+      font-weight: 400;
+    }
+  }
+
+  &__description {
+    margin-top: 4rem;
+
+    @media (max-width: $breakpoint-lg) {
+      margin-top: 3rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin-top: 2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__media {
+    @media (max-width: $breakpoint-md) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__badge {
+    width: 18rem;
+
+    @media (max-width: $breakpoint-lg) {
+      width: 12rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 3rem 0;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: space-between;
+    background-color: $white;
+    padding: 0.3rem;
+    border-radius: $border-radius;
+    width: 25rem;
+    height: 4rem;
+
+    @media (max-width: $breakpoint-md) {
+      justify-self: center;
+      height: 3rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      height: 5rem;
+      padding: 0.2rem;
+    }
+  }
+
+  &__input {
     width: 10rem;
     padding: 0.5rem;
     border: none;
@@ -69,7 +148,7 @@
     color: $gray-dark;
   }
 
-  .home__button {
+  &__button {
     width: 15rem;
     background-color: $pink;
     border: none;
@@ -82,6 +161,16 @@
 
     &:hover {
       background-color: $pink-hover;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      padding: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 100%;
+      font-size: 1rem;
     }
   }
 }

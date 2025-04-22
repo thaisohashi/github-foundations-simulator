@@ -14,7 +14,20 @@
     border-radius: $border-radius;
     padding: 3rem;
     width: 80%;
-    margin: 10rem 0;
+    margin: 8rem;
+
+    @media (max-width: $breakpoint-lg) {
+      margin: 5rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 3rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 2rem;
+      margin: 2rem;
+    }
   }
 
   &__title {
@@ -22,6 +35,18 @@
     font-weight: 700;
     text-align: center;
     margin: 0;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.5rem;
+    }
   }
 
   &__summary {
@@ -33,19 +58,43 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin: 0 0 2rem 0;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1rem;
+    }
   }
 
   &__percentage-number {
     font-size: 3.75rem;
     font-weight: 700;
     margin: 2rem 0 0 0;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 2rem;
+    }
   }
 
   &__accordion ::ng-deep .mat-expansion-panel {
     box-shadow: none;
     margin-top: 1rem;
     border: 0.1rem solid $black;
-    border-radius: $border-radius;
+    border-radius: $border-radius !important;
+
+    &.mat-expanded {
+      background-color: $gray-light;
+    }
   }
 
   &__question-header {
@@ -53,6 +102,10 @@
     font-size: 1rem;
     font-weight: 700;
     border-radius: $border-radius;
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 0.5rem 1rem;
+    }
   }
 
   &__question-title {
@@ -60,7 +113,6 @@
   }
 
   &__question-text {
-    padding: 0 0 0 1rem;
     font-size: 1rem;
     margin-bottom: 1rem;
     font-weight: 500;
@@ -70,7 +122,6 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 0.5rem;
   }
 
   &__alternative {
@@ -104,6 +155,11 @@
     border-radius: $border-radius;
     padding: 0.2em;
     margin-bottom: 0.5rem;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 5rem;
+      font-size: 0.7rem;
+    }
   }
 
   &__wrong {
@@ -115,6 +171,11 @@
     border-radius: $border-radius;
     padding: 0.2em;
     margin-bottom: 0.5rem;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 12rem;
+      font-size: 0.7rem;
+    }
   }
 
   &__explanation,
@@ -122,7 +183,6 @@
   &__domain-topic {
     font-size: 1rem;
     margin-bottom: 0;
-    padding: 0 0 0 1rem;
   }
 
   &__explanation-title,
@@ -135,10 +195,22 @@
     margin: 0;
   }
 
+  &__reference-link {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+
   &__domain-topic {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
   }
 
   &__domain,
@@ -152,6 +224,12 @@
     padding: 0.2em;
     border: 0.1rem solid $black;
 
+    @media (max-width: $breakpoint-sm) {
+      box-sizing: border-box;
+      margin: 0;
+      width: 100%;
+      font-size: 0.8rem;
+    }
   }
 
   &__footer {
@@ -174,6 +252,17 @@
 
     &:hover {
       background-color: $pink-hover;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      width: 12rem;
+      height: 3rem;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 10rem;
+      font-size: 1rem;
     }
   }
 
