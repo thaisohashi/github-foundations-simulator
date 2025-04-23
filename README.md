@@ -10,7 +10,7 @@ Como desenvolvedora e aluna do programa, senti que faltava um espaço mais prát
 
 A proposta é oferecer uma plataforma onde outras mulheres também possam contribuir com questões, explicações e sugestões, tornando o aprendizado mais colaborativo e acessível.
 
-Inicialmente, o projeto está mockado no front-end (Angular), com estrutura preparada para evoluir com um back-end em Java + Spring Boot.
+Inicialmente, o projeto está mockado no front-end (Angular).
 
 ## 📷 Demonstração
 
@@ -21,7 +21,6 @@ Em breve, as imagens serão disponibilizadas.
 - **Angular**
 - **TypeScript**
 - **HTML/CSS**
-- (futuramente) **Spring Boot** e **Java** para o backend
 
 ## ⚙️ Funcionalidades
 
