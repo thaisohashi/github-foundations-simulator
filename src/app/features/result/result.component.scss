@@ -1,0 +1,303 @@
+@import '../../../assets/styles/variables';
+
+.result {
+  font-family: "Mona Sans", sans-serif;
+  color: $black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    overflow-y: auto;
+    background-color: $white;
+    border-radius: $border-radius;
+    padding: 3rem;
+    width: 80%;
+    margin: 8rem;
+
+    @media (max-width: $breakpoint-lg) {
+      margin: 5rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      margin: 3rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 2rem;
+      margin: 2rem;
+    }
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__summary {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  &__percentage {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 1rem;
+    }
+  }
+
+  &__percentage-number {
+    font-size: 3.75rem;
+    font-weight: 700;
+    margin: 2rem 0 0 0;
+
+    @media (max-width: $breakpoint-lg) {
+      font-size: 3rem;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      font-size: 2rem;
+    }
+  }
+
+  &__accordion ::ng-deep .mat-expansion-panel {
+    box-shadow: none;
+    margin-top: 1rem;
+    border: 0.1rem solid $black;
+    border-radius: $border-radius !important;
+
+    &.mat-expanded {
+      background-color: $gray-light;
+    }
+  }
+
+  &__question-header {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: $border-radius;
+
+    @media (max-width: $breakpoint-sm) {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  &__question-title {
+    margin: 0;
+  }
+
+  &__question-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  &__alternatives {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__alternative {
+    border: 0.1rem solid $black;
+    border-radius: $border-radius;
+    padding: 1rem;
+  }
+
+  &__alternative--correct {
+    background-color: rgba($green, 0.2);
+    border-color: $green;
+  }
+
+  &__alternative--wrong {
+    background-color: rgba($red, 0.2);
+    border-color: $red;
+  }
+
+  &__option-text {
+    color: $black;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  &__correct {
+    display: inline-block;
+    width: 15rem;
+    color: $white;
+    text-align: center;
+    background-color: $green;
+    border-radius: $border-radius;
+    padding: 0.2em;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 12rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  &__wrong {
+    display: inline-block;
+    width: 15rem;
+    color: $white;
+    text-align: center;
+    background-color: $red;
+    border-radius: $border-radius;
+    padding: 0.2em;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: $breakpoint-sm) {
+      width: 12rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  &__explanation,
+  &__reference,
+  &__domain-topic {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  &__explanation-title,
+  &__reference-title {
+    margin: 2rem 0 0 0;
+  }
+
+  &__explanation-text,
+  &__reference-text {
+    margin: 0;
+  }
+
+  &__reference-link {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+  }
+
+  &__domain-topic {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    @media (max-width: $breakpoint-sm) {
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+  }
+
+  &__domain,
+  &__topic {
+    display: inline-block;
+    width: 20rem;
+    color: $black;
+    text-align: center;
+    background-color: transparent;
+    border-radius: $border-radius;
+    padding: 0.2em;
+    border: 0.1rem solid $black;
+
+    @media (max-width: $breakpoint-sm) {
+      box-sizing: border-box;
+      margin: 0;
+      width: 100%;
+      font-size: 0.8rem;
+    }
+  }
+
+  &__footer {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__new-quiz-button {
+    width: 15rem;
+    height: 3.5rem;
+    background-color: $pink;
+    border: none;
+    border-radius: $border-radius;
+    color: $white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: background-color 0.48s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: $pink-hover;
+    }
+
+    @media (max-width: $breakpoint-md) {
+      width: 12rem;
+      height: 3rem;
+      font-size: 1.2rem;
+    }
+
+    @media (max-width: $breakpoint-sm) {
+      width: 10rem;
+      font-size: 1rem;
+    }
+  }
+
+  .text-red {
+    color: $red;
+  }
+
+  .text-green {
+    color: $green;
+  }
+
+  &__language-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    display: flex;
+    gap: 0.5rem;
+
+    &-flag {
+      width: 1.5rem;
+    }
+
+    &-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+
+      &.active {
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 2px #000);
+      }
+    }
+  }
+}

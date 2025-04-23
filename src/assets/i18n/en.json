@@ -1,0 +1,41 @@
+{
+  "HOME": {
+    "TITLE": "GitHub Foundations Certification",
+    "SUBTITLE": "Practice exam",
+    "DESCRIPTION": "Choose as many questions as you want and start practicing now!",
+    "BUTTON": {
+      "START": "Start"
+    },
+    "ERROR": {
+      "MAX_QUESTIONS": "The maximum number of questions is {{maxQuestions}}."
+    }
+  },
+  "QUIZ": {
+    "PROGRESS": "Question {{current}} of {{total}}",
+    "BUTTON": {
+      "BACK": "Back",
+      "NEXT": "Next",
+      "FINISH": "Finish"
+    }
+  },
+  "RESULT": {
+    "TITLE": "Quiz Result",
+    "SUMMARY": {
+      "CORRECT_ANSWER_SINGULAR": "You answered {{correctAnswers}} out of {{totalQuestions}} question correctly",
+      "CORRECT_ANSWER_PLURAL": "You answered {{correctAnswers}} out of {{totalQuestions}} questions correctly",
+      "CONGRATULATIONS": "🎉 Congratulations! You answered all questions correctly!",
+      "ALL_WRONG": "You answered all questions incorrectly!",
+      "PERCENTAGE": "Your performance: {{ successPercentage | number: '1.0-2' }}%"
+    },
+    "QUESTION": {
+      "TITLE": "Question {{questionNumber}}",
+      "EXPLANATION": "Explanation:",
+      "REFERENCE": "Reference:",
+      "CORRECT": "Correct option",
+      "SELECTED": "Option you selected"
+    },
+    "BUTTON": {
+      "NEW_QUIZ": "New Quiz"
+    }
+  }
+}

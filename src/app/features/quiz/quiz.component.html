@@ -1,0 +1,49 @@
+<section class="quiz">
+  <div class="quiz__card">
+    <div class="quiz__header">
+      <p class="quiz__progress">
+        {{ 'QUIZ.PROGRESS' | translate:{ current: currentQuestionIndex + 1, total: totalQuestions } }}
+      </p>
+    </div>
+
+    <div class="quiz__question" *ngIf="currentQuestion">
+      <p class="quiz__question-text">
+        {{ currentQuestion.question_translated[currentLanguage] }}
+      </p>
+    </div>
+
+    <div class="quiz__options">
+      <label class="quiz__option" *ngFor="let alternative of currentQuestion?.alternatives"
+        [ngClass]="{'selected': selectedAnswers[currentQuestionIndex] === alternative.id}">
+        <input type="radio" name="answer-{{ currentQuestionIndex }}" [value]="alternative.id" class="quiz__input"
+          [(ngModel)]="selectedAnswers[currentQuestionIndex]" />
+        <span class="quiz__custom-radio"></span>
+        <span class="quiz__label-text">{{ alternative.alternative_translated[currentLanguage] }}</span>
+      </label>
+    </div>
+
+    <div class="quiz__footer">
+      <button *ngIf="currentQuestionIndex" class="quiz__prev-button" (click)="prevQuestion()">
+        {{ 'QUIZ.BUTTON.BACK' | translate }}
+      </button>
+      <button class="quiz__next-button" (click)="nextQuestion()" [disabled]="!selectedAnswers[currentQuestionIndex]">
+        {{
+        currentQuestionIndex === totalQuestions - 1
+        ? ('QUIZ.BUTTON.FINISH' | translate)
+        : ('QUIZ.BUTTON.NEXT' | translate)
+        }}
+      </button>
+    </div>
+  </div>
+
+  <div class="quiz__language-switcher">
+    <button (click)="switchLanguage('pt')" [class.active]="currentLanguage === 'pt'"
+      class="quiz__language-switcher-button">
+      <img class="quiz__language-switcher-flag" src="assets/images/brazil-flag.png" alt="Brazil Flag">
+    </button>
+    <button (click)="switchLanguage('en')" [class.active]="currentLanguage === 'en'"
+      class="quiz__language-switcher-button">
+      <img class="quiz__language-switcher-flag" src="assets/images/us-flag.png" alt="US Flag">
+    </button>
+  </div>
+</section>
