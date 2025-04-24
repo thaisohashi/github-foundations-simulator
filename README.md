@@ -12,7 +12,7 @@ A proposta é oferecer uma plataforma onde outras mulheres também possam contri
 
 Inicialmente, o projeto está mockado no front-end (Angular).
 
-## Como Contribuir?
+## 🤝 Como Contribuir?
 Quer colaborar com o projeto? Você pode:
 
 - ✍️ Adicionar novas questões ao simulado  
