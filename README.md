@@ -12,6 +12,25 @@ A proposta é oferecer uma plataforma onde outras mulheres também possam contri
 
 Inicialmente, o projeto está mockado no front-end (Angular).
 
+## Como Contribuir?
+Quer colaborar com o projeto? Você pode:
+
+- ✍️ Adicionar novas questões ao simulado  
+- 🐛 Reportar bugs ou erros nas questões  
+- 🌍 Ajudar com traduções (pt/en)  
+- 💡 Sugerir melhorias no funcionamento ou layout  
+
+📝 As questões estão localizadas no arquivo:  
+`src/app/core/mock/quiz.mock.ts`
+
+#### Passo a passo:
+
+1. Faça um **fork** do repositório
+2. Crie uma nova branch:  git checkout -b <nome-da-branch>
+3. Faça suas alterações e dê commit
+4. Envie um PR (Pull Request) com uma descrição clara da sua contribuição
+5. Se quiser só sugerir algo, abra uma issue 💬
+
 ## 📷 Demonstração
 
 Em breve, as imagens serão disponibilizadas.
@@ -39,7 +58,7 @@ Em breve, as imagens serão disponibilizadas.
   [GitHub Foundations Exam Study Guide](https://assets.ctfassets.net/wfutmusr1t3h/1kmMx7AwI4qH8yIZgOmQlP/4e60030cc6c76688698652e830ea2a48/github-foundations-exam-study-guide.pdf)
 
 ## 🌐 Deploy
-Em breve, será disponibilizado um link para o deploy online.
+https://github-foundations-simulator.vercel.app/
 
 ## 👩‍💻 Autora
 Thaís — Desenvolvedora Front-end
